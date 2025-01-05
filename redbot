@@ -19,7 +19,7 @@ help(){
 case "$1" in
   build) docker image rm ${IMAGE}:old; docker tag ${IMAGE} ${IMAGE}:old; docker build --build-arg BASE_IMAGE=${BASE_IMAGE} -t $IMAGE . ;;
   run) docker run -p 1111:1880 -d -e NODE_RED_ENABLE_PROJECTS=true -e THEME=${THEME}  -v .:/data \
-    --name testred ${IMAGE} ;;
+    --name ${NAME} ${IMAGE} ;;
   flush) $0 build; $0 kill; $0 run; $0 log ;;
   log) docker logs -f ${NAME} ;;
   kill) docker kill ${NAME}; docker rm ${NAME} ;;
