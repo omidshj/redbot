@@ -1,7 +1,11 @@
 .env
-node_modules
 .npm
+
+node_modules
 storage
+
+package-lock.json
+.sessions.json
+
 *.log
 *.backup
-package-lock.json

@@ -16,10 +16,29 @@ help(){
     echo "    add                   add package to npm"
 }
 
+attach_networks() {
+  local container_name=$1
+  if [ -n "$NETWORKS" ]; then
+    IFS=',' read -ra network_list <<< "$NETWORKS"
+    for network in "${network_list[@]}"; do
+      docker network connect "$network" "$container_name"
+    done
+  else
+    echo "No networks specified in NETWORKS variable."
+  fi
+}
+
 case "$1" in
   build) docker image rm ${IMAGE}:old; docker tag ${IMAGE} ${IMAGE}:old; docker build --build-arg BASE_IMAGE=${BASE_IMAGE} -t $IMAGE . ;;
-  run) docker run -p 1111:1880 -d -e NODE_RED_ENABLE_PROJECTS=true -e THEME=${THEME}  -v .:/data \
-    --name ${NAME} ${IMAGE} ;;
+  run)
+    container_id=$(docker run -p 1111:1880 -d \
+      -e NODE_RED_ENABLE_PROJECTS=true -e THEME=${THEME} -e DASHBOARD_PASS=${DASHBOARD_PASS} \
+      -e ADMIN_PASS=${ADMIN_PASS} -v .:/data --name ${NAME} ${IMAGE})
+    attach_networks "$container_id"
+    ;;
+  # docker run -p 1111:1880 -d -e NODE_RED_ENABLE_PROJECTS=true -e THEME=${THEME} -e DASHBOARD_PASS=${DASHBOARD_PASS} -e ADMIN_PASS=${ADMIN_PASS}  -v .:/data \
+  #   --name ${NAME} ${IMAGE} ;;
+  restart) $0 kill; $0 run; $0 log ;;
   flush) $0 build; $0 kill; $0 run; $0 log ;;
   log) docker logs -f ${NAME} ;;
   kill) docker kill ${NAME}; docker rm ${NAME} ;;
