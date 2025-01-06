@@ -15,6 +15,30 @@
         "info": ""
     },
     {
+        "id": "856d31f7542faa99",
+        "type": "tab",
+        "label": "mappers",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c3ab8bf1851e1905",
+        "type": "tab",
+        "label": "init",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7fa141ca2c1278bc",
+        "type": "tab",
+        "label": "casters",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "bd2f53f3f9c07060",
         "type": "subflow",
         "name": "parser",
@@ -281,6 +305,36 @@
         "type": "ui_group",
         "name": "jsonata",
         "tab": "244d92db5dfe27c1",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e9072345807a1505",
+        "type": "ui_tab",
+        "name": "meppers",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "bae4826986848395",
+        "type": "ui_group",
+        "name": "form",
+        "tab": "e9072345807a1505",
+        "order": 2,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "73ec0b96b34b0d02",
+        "type": "ui_group",
+        "name": "index",
+        "tab": "e9072345807a1505",
         "order": 1,
         "disp": true,
         "width": 6,
@@ -1759,6 +1813,582 @@
         "className": "",
         "x": 580,
         "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "59b079c1a41dfd8b",
+        "type": "ui_template",
+        "z": "856d31f7542faa99",
+        "group": "bae4826986848395",
+        "name": "jsonata",
+        "order": 1,
+        "width": 12,
+        "height": 14,
+        "format": "<div style=\"display: flex; flex-direction: column; height: 100%; padding: 10px; box-sizing: border-box;\">\n  <label style=\"font-size: 16px; font-weight: bold; margin-bottom: 5px;\">mapper jsonata</label>\n  <textarea ng-model=\"text\" ng-change=\"sendText()\" style=\"flex: 1; width: 95%; height: 100%; font-family: 'Courier New', Courier, monospace; \n    font-size: 14px; line-height: 1.5; font-size: 14px; line-height: 1.5; color: #333; \n    background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 5px; padding: 10px; resize: vertical; \n    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);\">{{msg.payload}}</textarea>\n</div>\n<script>\n  (function(scope) {\n    scope.$watch('msg.payload', function(newValue) {\n      if (newValue !== undefined) scope.text = newValue\n    })    \n    scope.sendText = () => scope.send({ payload: scope.text })\n  })(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "6148d3b145be58dc"
+            ]
+        ]
+    },
+    {
+        "id": "887fc4e318b96874",
+        "type": "ui_text_input",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "label": "",
+        "tooltip": "name",
+        "group": "bae4826986848395",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 520,
+        "y": 60,
+        "wires": [
+            [
+                "8c9cd957698ab449"
+            ]
+        ]
+    },
+    {
+        "id": "4a723cf73b21c73d",
+        "type": "ui_button",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "group": "bae4826986848395",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "save",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 340,
+        "wires": [
+            [
+                "957b8e2942ebc71e"
+            ]
+        ]
+    },
+    {
+        "id": "ef1c76f34ba250a6",
+        "type": "ui_button",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "group": "bae4826986848395",
+        "order": 4,
+        "width": 2,
+        "height": 1,
+        "passthru": false,
+        "label": "delete",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 400,
+        "wires": [
+            [
+                "3c6cf96e6e406228"
+            ]
+        ]
+    },
+    {
+        "id": "abf6ce986adac953",
+        "type": "ui_table",
+        "z": "856d31f7542faa99",
+        "group": "73ec0b96b34b0d02",
+        "name": "",
+        "order": 3,
+        "width": 6,
+        "height": 13,
+        "columns": [],
+        "outputs": 1,
+        "cts": true,
+        "x": 270,
+        "y": 80,
+        "wires": [
+            [
+                "89aa90edf90a134e",
+                "1430a8c14f2e38fc"
+            ]
+        ]
+    },
+    {
+        "id": "3c335c9cc4dd6a3d",
+        "type": "change",
+        "z": "856d31f7542faa99",
+        "name": "index",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mappers",
+                "pt": "msg",
+                "to": "mappers",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$map($keys(msg.mappers), function($v) {    { \"name\": $v}  })",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 150,
+        "y": 80,
+        "wires": [
+            [
+                "abf6ce986adac953"
+            ]
+        ]
+    },
+    {
+        "id": "89aa90edf90a134e",
+        "type": "change",
+        "z": "856d31f7542faa99",
+        "name": "name",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "flow",
+                "to": "payload.name",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.name",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 60,
+        "wires": [
+            [
+                "887fc4e318b96874"
+            ]
+        ]
+    },
+    {
+        "id": "8c9cd957698ab449",
+        "type": "rbe",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 650,
+        "y": 60,
+        "wires": [
+            [
+                "acdbcd5b7e4eab0c"
+            ]
+        ]
+    },
+    {
+        "id": "6148d3b145be58dc",
+        "type": "rbe",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 650,
+        "y": 100,
+        "wires": [
+            [
+                "7103c6e33a06677d"
+            ]
+        ]
+    },
+    {
+        "id": "acdbcd5b7e4eab0c",
+        "type": "change",
+        "z": "856d31f7542faa99",
+        "name": "name",
+        "rules": [
+            {
+                "t": "set",
+                "p": "name",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1430a8c14f2e38fc",
+        "type": "change",
+        "z": "856d31f7542faa99",
+        "name": "value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$globalContext('mappers.' & msg.payload.name)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "59b079c1a41dfd8b"
+            ]
+        ]
+    },
+    {
+        "id": "7103c6e33a06677d",
+        "type": "change",
+        "z": "856d31f7542faa99",
+        "name": "value",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 770,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4548e87f3dd63647",
+        "type": "ui_button",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "group": "73ec0b96b34b0d02",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "add",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 280,
+        "wires": [
+            [
+                "93709e105af9d1fa"
+            ]
+        ]
+    },
+    {
+        "id": "c5c7636d69030326",
+        "type": "ui_text_input",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "label": "add",
+        "tooltip": "name",
+        "group": "73ec0b96b34b0d02",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "5ad9cb7dea6dc3cf"
+            ]
+        ]
+    },
+    {
+        "id": "93709e105af9d1fa",
+        "type": "function",
+        "z": "856d31f7542faa99",
+        "name": "function 1",
+        "func": "global.set('mappers.'+flow.get('new'), '$')\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 280,
+        "wires": [
+            [
+                "fc42835126cfce0d"
+            ]
+        ]
+    },
+    {
+        "id": "5ad9cb7dea6dc3cf",
+        "type": "change",
+        "z": "856d31f7542faa99",
+        "name": "new",
+        "rules": [
+            {
+                "t": "set",
+                "p": "new",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "80871a45a70372ba",
+        "type": "change",
+        "z": "856d31f7542faa99",
+        "name": "null",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 150,
+        "y": 160,
+        "wires": [
+            [
+                "c5c7636d69030326"
+            ]
+        ]
+    },
+    {
+        "id": "769bb227ca5f15ef",
+        "type": "ui_ui_control",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "events": "change",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "fc42835126cfce0d"
+            ]
+        ]
+    },
+    {
+        "id": "086e4f3f24a6ccd3",
+        "type": "link in",
+        "z": "856d31f7542faa99",
+        "name": "mappers",
+        "links": [],
+        "x": 55,
+        "y": 120,
+        "wires": [
+            [
+                "3c335c9cc4dd6a3d",
+                "80871a45a70372ba"
+            ]
+        ]
+    },
+    {
+        "id": "fc42835126cfce0d",
+        "type": "link call",
+        "z": "856d31f7542faa99",
+        "name": "",
+        "links": [
+            "086e4f3f24a6ccd3"
+        ],
+        "linkType": "static",
+        "timeout": "30",
+        "x": 520,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "957b8e2942ebc71e",
+        "type": "function",
+        "z": "856d31f7542faa99",
+        "name": "function 2",
+        "func": "global.set('mappers.'+flow.get('target'), flow.get('value'))\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 340,
+        "wires": [
+            [
+                "fc42835126cfce0d"
+            ]
+        ]
+    },
+    {
+        "id": "3c6cf96e6e406228",
+        "type": "function",
+        "z": "856d31f7542faa99",
+        "name": "function 3",
+        "func": "global.set('mappers.'+flow.get('target'), undefined)\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 400,
+        "wires": [
+            [
+                "fc42835126cfce0d"
+            ]
+        ]
+    },
+    {
+        "id": "aa6ba484545c3a7e",
+        "type": "inject",
+        "z": "c3ab8bf1851e1905",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "69f508fd61e58580"
+            ]
+        ]
+    },
+    {
+        "id": "69f508fd61e58580",
+        "type": "change",
+        "z": "c3ab8bf1851e1905",
+        "name": "app init",
+        "rules": [
+            {
+                "t": "set",
+                "p": "mappers",
+                "pt": "global",
+                "to": "{\"i3\":\"$.{\\n  'id': _id,\\n  'origin': $, \\n  'cast': $\\n}\",\"i4\":\"$.{\\n  'id': _id,\\n  'origin': $, \\n  'cast': $\\n}\",\"yaml\":\"$.{\\n  'id': id,\\n  'origin': $, \\n  'cast': $\\n}\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 180,
         "wires": [
             []
         ]
