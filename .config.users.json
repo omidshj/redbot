@@ -33,7 +33,7 @@
                 "view-store-position": false,
                 "view-show-grid": true,
                 "view-snap-grid": true,
-                "view-grid-size": 20,
+                "view-grid-size": "20",
                 "view-node-status": true,
                 "view-node-show-label": true,
                 "view-show-tips": true,
@@ -42,6 +42,17 @@
             "tours": {
                 "welcome": "4.0.8"
             }
-        }
+        },
+        "git": {
+            "user": {
+                "name": "",
+                "email": ""
+            },
+            "workflow": {
+                "mode": "manual"
+            }
+        },
+        "menu-menu-item-palette": true,
+        "menu-menu-item-sidebar": true
     }
 }

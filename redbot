@@ -31,7 +31,7 @@ attach_networks() {
 case "$1" in
   build) docker image rm ${IMAGE}:old; docker tag ${IMAGE} ${IMAGE}:old; docker build --build-arg BASE_IMAGE=${BASE_IMAGE} -t $IMAGE . ;;
   run)
-    container_id=$(docker run -p 1111:1880 -d \
+    container_id=$(docker run -p ${PORT}:1880 -d \
       -e NODE_RED_ENABLE_PROJECTS=true -e THEME=${THEME} -e DASHBOARD_PASS=${DASHBOARD_PASS} \
       -e ADMIN_PASS=${ADMIN_PASS} -v .:/data --name ${NAME} ${IMAGE})
     attach_networks "$container_id"

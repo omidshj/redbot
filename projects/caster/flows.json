@@ -1,18 +1,18 @@
 [
     {
-        "id": "f6f2187d.f17ca8",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "b0862711f6e11cad",
         "type": "tab",
         "label": "datasets",
         "disabled": false,
         "info": "",
         "env": []
+    },
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "casting",
+        "disabled": false,
+        "info": ""
     },
     {
         "id": "bd2f53f3f9c07060",
@@ -77,7 +77,7 @@
         "id": "a8013c3d6ec31116",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#1f35e0",
@@ -96,20 +96,21 @@
                 "name": "Untitled Theme 1",
                 "default": "#4B7930",
                 "baseColor": "#4B7930",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#1f35e0",
+                    "default": "#097479",
+                    "value": "#097479",
                     "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#1f35e0",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
+                    "value": "#111111",
                     "edited": false
                 },
                 "page-sidebar-backgroundColor": {
@@ -117,27 +118,27 @@
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#6272e9",
+                    "value": "#0eb8c0",
                     "edited": false
                 },
                 "group-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#555555",
                     "edited": false
                 },
                 "group-backgroundColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "widget-textColor": {
-                    "value": "#111111",
+                    "value": "#eeeeee",
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#1f35e0",
+                    "value": "#097479",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -255,6 +256,36 @@
         "order": 7,
         "width": 7,
         "height": 1
+    },
+    {
+        "id": "244d92db5dfe27c1",
+        "type": "ui_tab",
+        "name": "casting",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "4048acdcac80ae52",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "244d92db5dfe27c1",
+        "order": 2,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d2783e057b1a18bc",
+        "type": "ui_group",
+        "name": "jsonata",
+        "tab": "244d92db5dfe27c1",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "af12bf778fbcb602",
@@ -441,8 +472,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 320,
-        "y": 120,
+        "x": 180,
+        "y": 100,
         "wires": [
             [
                 "22b112d187c7046f"
@@ -468,8 +499,8 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 460,
-        "y": 120,
+        "x": 320,
+        "y": 100,
         "wires": [
             [
                 "7f9dcfd9d85e909b"
@@ -484,7 +515,7 @@
         "links": [
             "0bf4096b785ff379"
         ],
-        "x": 145,
+        "x": 55,
         "y": 140,
         "wires": [
             [
@@ -525,8 +556,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 590,
-        "y": 120,
+        "x": 450,
+        "y": 100,
         "wires": [
             [
                 "88fbdd0bd92abe7f"
@@ -558,13 +589,6 @@
                 "pt": "flow",
                 "to": "payload",
                 "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "dataset_type",
-                "pt": "flow",
-                "to": "$type($globalContext($join(['datasets', $flowContext('dataset')], '.')))",
-                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -572,8 +596,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 780,
-        "y": 120,
+        "x": 640,
+        "y": 100,
         "wires": [
             [
                 "0bf4096b785ff379"
@@ -606,8 +630,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 380,
+        "x": 350,
+        "y": 180,
         "wires": [
             [
                 "c6b5506bfc29603d"
@@ -636,8 +660,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 590,
-        "y": 400,
+        "x": 510,
+        "y": 200,
         "wires": [
             [
                 "2bca490833eae5c3",
@@ -661,8 +685,8 @@
         "columns": [],
         "outputs": 1,
         "cts": true,
-        "x": 800,
-        "y": 320,
+        "x": 680,
+        "y": 200,
         "wires": [
             [
                 "4a8ef53307ac059d"
@@ -675,8 +699,8 @@
         "z": "b0862711f6e11cad",
         "name": "",
         "events": "all",
-        "x": 1120,
-        "y": 400,
+        "x": 1000,
+        "y": 280,
         "wires": [
             []
         ]
@@ -696,8 +720,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 860,
-        "y": 560,
+        "x": 820,
+        "y": 400,
         "wires": [
             [
                 "a03e9441b70926fc"
@@ -723,8 +747,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 880,
-        "y": 440,
+        "x": 760,
+        "y": 320,
         "wires": [
             [
                 "fac6b94b9911b6a4"
@@ -750,8 +774,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 880,
-        "y": 380,
+        "x": 760,
+        "y": 260,
         "wires": [
             [
                 "fac6b94b9911b6a4"
@@ -777,8 +801,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1080,
-        "y": 320,
+        "x": 960,
+        "y": 200,
         "wires": [
             [
                 "0bf4096b785ff379"
@@ -791,8 +815,8 @@
         "z": "b0862711f6e11cad",
         "property": "payload",
         "name": "",
-        "x": 1120,
-        "y": 520,
+        "x": 1070,
+        "y": 400,
         "wires": [
             [
                 "02c51aeab16fb3a3"
@@ -818,8 +842,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1230,
-        "y": 460,
+        "x": 1210,
+        "y": 400,
         "wires": [
             []
         ]
@@ -844,8 +868,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 1250,
-        "y": 360,
+        "x": 1130,
+        "y": 240,
         "wires": [
             [
                 "0b05fa180b8deacb"
@@ -864,8 +888,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1400,
-        "y": 380,
+        "x": 1260,
+        "y": 240,
         "wires": [
             [
                 "0bf4096b785ff379"
@@ -892,8 +916,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 150,
-        "y": 560,
+        "x": 510,
+        "y": 280,
         "wires": [
             []
         ]
@@ -919,7 +943,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 90,
-        "y": 960,
+        "y": 620,
         "wires": [
             [
                 "0e95d762b3abad54"
@@ -942,7 +966,7 @@
         "templateScope": "local",
         "className": "",
         "x": 550,
-        "y": 840,
+        "y": 500,
         "wires": [
             [
                 "78c278ecb48cb984"
@@ -969,8 +993,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 330,
-        "y": 240,
+        "x": 170,
+        "y": 140,
         "wires": [
             [
                 "21e3a62d981f6fd9"
@@ -984,7 +1008,7 @@
         "id": "21e3a62d981f6fd9",
         "type": "change",
         "z": "b0862711f6e11cad",
-        "name": "",
+        "name": "toggle add",
         "rules": [
             {
                 "t": "set",
@@ -999,8 +1023,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 510,
-        "y": 180,
+        "x": 330,
+        "y": 140,
         "wires": [
             [
                 "2e0a49faf459107c"
@@ -1013,8 +1037,8 @@
         "z": "b0862711f6e11cad",
         "name": "",
         "events": "all",
-        "x": 710,
-        "y": 180,
+        "x": 480,
+        "y": 140,
         "wires": [
             []
         ]
@@ -1025,8 +1049,8 @@
         "z": "b0862711f6e11cad",
         "property": "payload",
         "name": "",
-        "x": 730,
-        "y": 560,
+        "x": 690,
+        "y": 400,
         "wires": [
             [
                 "799cb1401e0a0433"
@@ -1040,11 +1064,12 @@
         "name": "",
         "scope": null,
         "uncaught": false,
-        "x": 140,
+        "x": 100,
         "y": 700,
         "wires": [
             [
-                "7c614b439b86aa21"
+                "7c614b439b86aa21",
+                "9574245dc3820a3d"
             ]
         ]
     },
@@ -1052,7 +1077,7 @@
         "id": "7c614b439b86aa21",
         "type": "debug",
         "z": "b0862711f6e11cad",
-        "name": "debug 1",
+        "name": "datasets catch logs",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -1061,8 +1086,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 300,
-        "y": 640,
+        "x": 270,
+        "y": 700,
         "wires": []
     },
     {
@@ -1082,8 +1107,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 150,
-        "y": 400,
+        "x": 390,
+        "y": 280,
         "wires": []
     },
     {
@@ -1105,8 +1130,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 150,
-        "y": 300,
+        "x": 240,
+        "y": 280,
         "wires": [
             [
                 "2191b28eea9df2f6"
@@ -1125,8 +1150,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 930,
-        "y": 320,
+        "x": 810,
+        "y": 200,
         "wires": [
             [
                 "ac6b1659d33bf15a"
@@ -1145,8 +1170,8 @@
         "septopics": true,
         "property": "payload",
         "topi": "topic",
-        "x": 990,
-        "y": 540,
+        "x": 950,
+        "y": 400,
         "wires": [
             [
                 "6394587790cce002"
@@ -1235,7 +1260,7 @@
         "topicType": "msg",
         "className": "",
         "x": 110,
-        "y": 840,
+        "y": 500,
         "wires": [
             [
                 "c6f84202c6463c56"
@@ -1276,7 +1301,7 @@
         "to": "",
         "reg": false,
         "x": 280,
-        "y": 840,
+        "y": 500,
         "wires": [
             [
                 "d47480e37dd94771"
@@ -1296,7 +1321,7 @@
             }
         ],
         "x": 670,
-        "y": 840,
+        "y": 500,
         "wires": [
             [
                 "086096276b4bab7d"
@@ -1316,7 +1341,7 @@
             }
         ],
         "x": 430,
-        "y": 840,
+        "y": 500,
         "wires": [
             [
                 "a4f9ec810a9362c5"
@@ -1343,7 +1368,7 @@
         "to": "",
         "reg": false,
         "x": 820,
-        "y": 840,
+        "y": 500,
         "wires": [
             []
         ]
@@ -1367,7 +1392,7 @@
         "className": "",
         "topicType": "msg",
         "x": 90,
-        "y": 800,
+        "y": 460,
         "wires": [
             [
                 "0a63ad79c19c5087"
@@ -1394,7 +1419,7 @@
         "to": "",
         "reg": false,
         "x": 260,
-        "y": 800,
+        "y": 460,
         "wires": [
             []
         ]
@@ -1435,7 +1460,7 @@
         "topicType": "msg",
         "className": "",
         "x": 110,
-        "y": 880,
+        "y": 540,
         "wires": [
             [
                 "d9994fbf9f7e0441"
@@ -1458,7 +1483,7 @@
         "templateScope": "local",
         "className": "",
         "x": 420,
-        "y": 880,
+        "y": 540,
         "wires": [
             [
                 "8735c3676f01a5c1"
@@ -1485,7 +1510,7 @@
         "to": "",
         "reg": false,
         "x": 270,
-        "y": 880,
+        "y": 540,
         "wires": [
             [
                 "35609e6aaa4849a9"
@@ -1512,7 +1537,7 @@
         "to": "",
         "reg": false,
         "x": 580,
-        "y": 880,
+        "y": 540,
         "wires": [
             []
         ]
@@ -1524,7 +1549,7 @@
         "name": "add dashboard",
         "info": "",
         "x": 120,
-        "y": 760,
+        "y": 420,
         "wires": []
     },
     {
@@ -1534,7 +1559,7 @@
         "name": "add logic",
         "info": "",
         "x": 100,
-        "y": 920,
+        "y": 580,
         "wires": []
     },
     {
@@ -1558,7 +1583,7 @@
         "repair": false,
         "outputs": 2,
         "x": 210,
-        "y": 960,
+        "y": 620,
         "wires": [
             [
                 "20d6630bb3ef93a5"
@@ -1586,7 +1611,7 @@
         "to": "",
         "reg": false,
         "x": 360,
-        "y": 940,
+        "y": 600,
         "wires": [
             [
                 "e5f4655af5d52d4f"
@@ -1606,7 +1631,7 @@
         "finalize": "",
         "libs": [],
         "x": 720,
-        "y": 980,
+        "y": 640,
         "wires": [
             []
         ]
@@ -1631,11 +1656,111 @@
         "to": "",
         "reg": false,
         "x": 560,
-        "y": 980,
+        "y": 640,
         "wires": [
             [
                 "eb8566b3afebb563"
             ]
+        ]
+    },
+    {
+        "id": "9574245dc3820a3d",
+        "type": "ui_toast",
+        "z": "b0862711f6e11cad",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 490,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "209448046d821a1e",
+        "type": "comment",
+        "z": "b0862711f6e11cad",
+        "name": "catch errors",
+        "info": "",
+        "x": 110,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "81dff2bacd80ee38",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "group": "d2783e057b1a18bc",
+        "name": "jsonata",
+        "order": 1,
+        "width": 6,
+        "height": 15,
+        "format": "<div style=\"display: flex; flex-direction: column; height: 100%; padding: 10px; box-sizing: border-box;\">\n  <label style=\"font-size: 16px; font-weight: bold; margin-bottom: 5px;\">mapper jsonata</label>\n  <textarea ng-model=\"text\" ng-change=\"sendText()\" style=\"flex: 1; width: 95%; height: 100%; font-family: 'Courier New', Courier, monospace; \n    font-size: 14px; line-height: 1.5; font-size: 14px; line-height: 1.5; color: #333; \n    background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 5px; padding: 10px; resize: vertical; \n    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);\">{{msg.payload}}</textarea>\n</div>\n<script>\n  (function(scope) {\n    scope.$watch('msg.payload', function(newValue) {\n      if (newValue !== undefined) scope.text = newValue\n    })    \n    scope.sendText = () => scope.send({ payload: scope.text })\n  })(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 100,
+        "y": 60,
+        "wires": [
+            [
+                "a79e6f746b856a1a"
+            ]
+        ]
+    },
+    {
+        "id": "a79e6f746b856a1a",
+        "type": "change",
+        "z": "f6f2187d.f17ca8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$eval(msg.payload, $globalContext('datasets'))",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 60,
+        "wires": [
+            [
+                "json_viewer"
+            ]
+        ]
+    },
+    {
+        "id": "json_viewer",
+        "type": "ui_template",
+        "z": "f6f2187d.f17ca8",
+        "group": "4048acdcac80ae52",
+        "name": "JSON Viewer",
+        "order": 1,
+        "width": 12,
+        "height": 15,
+        "format": "<!DOCTYPE html>\n<html>\n<head>\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.css\">\n    <script src=\"https://cdn.jsdelivr.net/npm/jsoneditor/dist/jsoneditor.min.js\"></script>\n</head>\n<body>\n    <div id=\"jsoneditor\" style=\"height:100%;\"></div>\n\n    <script>\n        (function(scope) {\n            var container = document.getElementById(\"jsoneditor\");\n            var options = {\n                mode: \"view\",\n                modes: [\"view\", \"code\"] // Allow switching between modes\n            };\n            var editor = new JSONEditor(container, options);\n\n            scope.$watch('msg.payload', function(newVal, oldVal) {\n                if (newVal) {\n                    editor.set(newVal);\n                }\n            });\n        })(scope);\n    </script>\n</body>\n</html>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 580,
+        "y": 160,
+        "wires": [
+            []
         ]
     }
 ]
